@@ -40,9 +40,9 @@ gulp.task('minImg',function(){
 gulp.task('minJs',function () {
     return gulp.src([gulpConfig.js.src])//js文件路径
         .pipe(plugins.plumber())//异常消息提醒，防止中断
-       // .pipe(plugins.babel({presets: ['es2015']}))
+        //.pipe(babel({presets: ['es2015']}))
         .pipe(plugins.changed(gulpConfig.js.dist))//只有改变的js需要重新压缩
-      //  .pipe(plugins.uglify())//文件压缩
+        .pipe(plugins.uglify())//文件压缩
         .pipe(plugins.rev())//添加文件后缀
         .pipe(gulp.dest(gulpConfig.js.dist))//文件输出
         .pipe(plugins.rev.manifest())
@@ -166,7 +166,7 @@ gulp.task('watchTest', function () {
  */
 gulp.task('connectTest', function () {
     connect.server({
-        name: 'CPM-DCV2.0',
+        name: 'JCPLAYER-V1.0',
         root: 'test',//允许访问根目录
         index:false,//是否开气默认引导页
         port: 8003,//服务端口号
@@ -179,7 +179,7 @@ gulp.task('connectTest', function () {
  */
 gulp.task('connectSrc', function () {
     connect.server({
-        name: 'CPM-DCV2.0',
+        name: 'JCPLAYER-V1.0',
         root: 'src',//允许访问根目录
         index:false,//是否开气默认引导页
         port: 8001,//服务端口号
@@ -191,7 +191,7 @@ gulp.task('connectSrc', function () {
  */
 gulp.task('connectDist', function () {
     connect.server({
-        name: 'CPM-DCV2.0',
+        name: 'JCPLAYER-V1.0',
         root: 'dist',//允许访问根目录
         index:false,//是否开气默认引导页
         port: 8001,//服务端口号

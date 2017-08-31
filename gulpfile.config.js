@@ -1,14 +1,14 @@
 var SRC_DIR = './src/';     // 源文件目录
 var SRC_HTML_DIR=SRC_DIR+"/**/";//处理后的html文件路径
-var SRC_IMG_DIR=SRC_DIR+"img/**/";//处理后的img文件路径
-var SRC_CSS_DIR=SRC_DIR+"css/**/";//处理后的css文件路径
-var SRC_JS_DIR=SRC_DIR+"js/**/";//处理后的js文件路径
+var SRC_IMG_DIR=SRC_DIR+"/**/";//处理后的img文件路径
+var SRC_CSS_DIR=SRC_DIR+"/**/";//处理后的css文件路径
+var SRC_JS_DIR=SRC_DIR+"/**/";//处理后的js文件路径
 
 var DIST_DIR = './dist/';   // 文件处理后存放的目录(生产环境)
 var DIST_HTML_DIR=DIST_DIR+"html/";//处理后的html文件路径
-var DIST_IMG_DIR=DIST_DIR+"img/";//处理后的img文件路径
-var DIST_CSS_DIR=DIST_DIR+"css/";//处理后的css文件路径
-var DIST_JS_DIR=DIST_DIR+"js/";//处理后的js文件路径
+var DIST_IMG_DIR=DIST_DIR;//处理后的img文件路径
+var DIST_CSS_DIR=DIST_DIR;//处理后的css文件路径
+var DIST_JS_DIR=DIST_DIR;//处理后的js文件路径
 var DIST_JS_REV=DIST_DIR+"rev/js"//js文件名修改后json文件路径
 var DIST_CSS_REV=DIST_DIR+"rev/css"//css文件名修改后json文件路径
 
