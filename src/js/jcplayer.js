@@ -140,8 +140,8 @@
         var name=data.name||"";
         var singer=data.singer||"";
         var title=data.title||"";
-        $(".music-pic img").attr("src",cover);
-        $(".music-name").html(name);
+        $(".jc-player .music-pic img").attr("src",cover);
+        $(".jc-player .music-name").html(name);
         $("#jc-player-audio").attr({"src":src,"musicId":id,"currentIndex":index});//移除时需要更新索引
         playOnEnded();//监听结束
         initProgress();//设置进度
@@ -159,7 +159,7 @@
                 var html='<div class="jc-player">'+
                     '    <div class="jc-player-music-pic">                                              '+
                     '        <div class="music-pic">                                                    '+
-                    '            <img>                                        '+
+                    '            <img>                               '+
                     '        </div>                                                                     '+
                     '        <div class="music-name">                                                   '+
                     '        </div>                                                                     '+
@@ -188,11 +188,16 @@
                     '        <span class="play-type play-type-random"></span>                                            '+
                     '        <span class="music-rcl"></span>                                            '+
                     '        <span class="music-list"></span>                                           '+
-                    '        <span class="music-list-num"></span>                                    '+
+                    '        <span class="music-list-num">0</span>                                    '+
                     '    </div>                                                                         '+
                     '</div>                                                                             '+
                     '<audio id="jc-player-audio"  controls></audio>                                               ';
                 $(appendId).append(html);
+                setTimeout(function(){
+                    if($(".jc-player img").attr("src")==null|| $(".jc-player img").attr("src")==undefined){
+                        $(".jc-player img").attr("src", "../img/jc-player-default.png");
+                    }
+                },300)
             }
         });
         return initP;
@@ -293,8 +298,8 @@
             });
         });
         //播放进度条点击
-        $(".progress").unbind();
-        $(".progress").click(function(e){
+        $(".jc-player .progress").unbind();
+        $(".jc-player .progress").click(function(e){
             if(!tag){
                 var bgleft =$(this).offset().left;
                 var progressWith= $(this).width();
@@ -318,8 +323,8 @@
      * 拖动设置音量
      */
     function drafMusicVolume(){
-        $(".volume-large").unbind();
-        $(".volume-large").on('click',function(e){
+        $(".jc-player .volume-large").unbind();
+        $(".jc-player .volume-large").on('click',function(e){
             var bgleft=$(this).offset().left;
             var volumeWith= $(this).width();
             var left = e.pageX - bgleft;
@@ -330,7 +335,7 @@
                 left = volumeWith;
             }
             var  percent=volumeWith==0?0:(left/volumeWith)*100;
-            $(".volume-panel").css("width",percent+"%");
+            $(".jc-player .volume-panel").css("width",percent+"%");
             $("#jc-player-audio")[0].volume=percent/100;
         })
     }
@@ -340,16 +345,16 @@
     function changePlayType(jcPlayType){
         if(jcPlayType!=null&&jcPlayType!=undefined&&jcPlayType.match(/^R|C$/)){
             if(jcPlayType=='C'){
-                $(".play-type").addClass('play-type-cycle');
+                $(".jc-player .play-type").addClass('play-type-cycle');
             }else{
-                $(".play-type").addClass('play-type-random');
+                $(".jc-player .play-type").addClass('play-type-random');
             }
         }
-        $(".play-type").on('click',function(){
-            if($(".play-type").hasClass('play-type-cycle')){
-                $(".play-type").removeClass('play-type-cycle').addClass('play-type-random');
+        $(".jc-player .play-type").on('click',function(){
+            if($(".jc-player .play-type").hasClass('play-type-cycle')){
+                $(".jc-player .play-type").removeClass('play-type-cycle').addClass('play-type-random');
             }else{
-                $(".play-type").removeClass('play-type-random').addClass('play-type-cycle');
+                $(".jc-player .play-type").removeClass('play-type-random').addClass('play-type-cycle');
             }
         });
     }
@@ -367,8 +372,8 @@
      * 播放下一曲
      */
     function nextMusic(){
-        $(".jc-player-music-controls span:last-child").unbind();
-        $(".jc-player-music-controls span:last-child").on("click",function(){
+        $(".jc-player .jc-player-music-controls span:last-child").unbind();
+        $(".jc-player .jc-player-music-controls span:last-child").on("click",function(){
             var obj=getRandomOrNextMusic();
             if(obj==null){
                 return ;
@@ -392,7 +397,7 @@
     function getRandomOrNextMusic(){
         var total=parseInt(getMusicListCount());
         //返回随机
-        if($(".play-type.play-type-cycle").length==0){
+        if($(".jc-player .play-type.play-type-cycle").length==0){
             var randomIndex=Math.floor(Math.random()*total+1);
             return getMusicItemByIndex(randomIndex);
         }else{
@@ -478,7 +483,7 @@
      */
     function changeMusicListCount(){
         var num=getMusicListCount();
-        $(".music-list-num").text(num);
+        $(".jc-player .music-list-num").text(num);
     }
     /**
      * 播放音乐

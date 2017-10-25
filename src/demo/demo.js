@@ -16,7 +16,7 @@ $(function(){
     },{
         "id":"Jc02",
         "src":"demo-music02.mp3",
-        "cover":"./demo-img02.jpg",
+        "cover":"./demo-img02rr.jpg",
         "singer":"JC",
         "title":"Demo02",
         "name":"Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02Jc02"
