@@ -1,6 +1,8 @@
 #jc-music-player v1.0
 
-jc-music-player 是一款基于Jquery+H5实现的音乐播放插件，支持CMD/AMD/CommonJs规范 ,运用gulp工具进行发布。
+jc-music-player 是一款基于Jquery+H5实现的音乐播放插件，支持CMD/AMD/CommonJs规范 ,运用gulp工具进行发布，支持循环/随机播放/快进/上一曲/下一曲/音量+-/音乐时长等。
+![Alt text](./X4Y8QTS~IRNNWFPF[726$VG.png)
+
 ###gulp运行命令
 ``` bash
 gulp default  
