@@ -43,7 +43,7 @@ gulp.task('minJs',function () {
         //.pipe(babel({presets: ['es2015']}))
         .pipe(plugins.changed(gulpConfig.js.dist))//只有改变的js需要重新压缩
         .pipe(plugins.uglify())//文件压缩
-        .pipe(plugins.rev())//添加文件后缀
+        // .pipe(plugins.rev())//添加文件后缀
         .pipe(gulp.dest(gulpConfig.js.dist))//文件输出
         .pipe(plugins.rev.manifest())
         .pipe(gulp.dest(gulpConfig.rev.js));//输出json文件路径
@@ -56,7 +56,7 @@ gulp.task('minCss',function(){
         .pipe(plugins.plumber())//异常消息
         .pipe(plugins.changed(gulpConfig.css.dist))//只有改变的css需要重新压缩
         .pipe(plugins.minifyCss())//css文件压缩
-        .pipe(plugins.rev())//设置文件后缀
+        // .pipe(plugins.rev())//设置文件后缀
         .pipe(gulp.dest(gulpConfig.css.dist))//文件输出路径
         .pipe(plugins.rev.manifest())//修改后文件json
         .pipe(gulp.dest(gulpConfig.rev.css));//输出json文件路径
