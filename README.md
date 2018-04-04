@@ -6,8 +6,11 @@ jc-music-player 是一款基于Jquery+H5实现的音乐播放插件，支持CMD/
 gulp default  
 ``` 
 ###API:
+``` bash
 ####initMusicPanel(obj)
 初始化播放器面板，obj={id:dom-id}
+```
+``` bash
 ####addMusicList(list)
 添加音乐，list为音乐列表
 list=[{
@@ -18,17 +21,29 @@ list=[{
         "title":"Demo",//标题
         "name":"Jc01"//歌名用于滚动展示名字
     }]
+```
+``` bash
 ####removeMusicListById(id)
 通过音乐id,把音乐列表中的音乐移除，id=Jc01
+``` 
+
+``` bash
 ####removeMusicListByIndex(index)
 通过音乐id,把音乐列表中的音乐移除，index=0
+``` 
+``` bash
 ####removeAllMusicList()
 移除音乐列表中的所有音乐
+``` 
+``` bash
 ####playMusicById(id)
 播放指定id音乐,id=Jc01
+``` 
+
+``` bash
 ####playMusicByIndex(index)
 播放指定索引音乐,index=0
-
+``` 
 ###使用方式
 在header中引入
 ``` bash
